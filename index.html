@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fukuyama Lab | Laboratory of Veterinary Pharmacology</title>
+  <style>
+    :root {
+      --ink: #18324a;
+      --muted: #5d6b78;
+      --line: #d7e0e8;
+      --soft: #f4f8fb;
+      --accent: #0f6c81;
+      --accent-dark: #0a4d5c;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    .page {
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(244, 248, 251, 0.96) 0%, rgba(255, 255, 255, 1) 38%),
+        var(--white);
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      min-height: 72px;
+    }
+
+    .site-name {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--accent-dark);
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 800px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .profile {
+      margin-top: 28px;
+      padding: 18px 22px;
+      border-left: 4px solid var(--accent);
+      background: var(--white);
+      box-shadow: 0 10px 30px rgba(24, 50, 74, 0.08);
+    }
+
+    .profile strong {
+      color: var(--ink);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: var(--white);
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .button.secondary {
+      background: var(--white);
+      color: var(--accent-dark);
+    }
+
+    .button.secondary:hover {
+      background: var(--soft);
+      color: var(--accent-dark);
+    }
+
+    section {
+      padding: 54px 0;
+    }
+
+    section.soft {
+      background: var(--soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .intro {
+      max-width: 880px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .topic {
+      min-height: 180px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .topic p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .figure-block {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: 32px;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .overview-figure {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 12px 36px rgba(24, 50, 74, 0.08);
+    }
+
+    .figure-note {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .collaboration {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .theme-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .theme-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .contact {
+      padding: 28px;
+      border-radius: 8px;
+      background: var(--accent-dark);
+      color: var(--white);
+    }
+
+    .contact h2 {
+      color: var(--white);
+      font-size: 26px;
+    }
+
+    .contact p {
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .contact .button {
+      background: var(--white);
+      border-color: var(--white);
+      color: var(--accent-dark);
+    }
+
+    .contact .button:hover {
+      background: #e9f2f6;
+      border-color: #e9f2f6;
+    }
+
+    .address {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.24);
+      font-style: normal;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .wrap {
+        width: min(100% - 28px, 1080px);
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      nav {
+        justify-content: flex-start;
+        gap: 12px 16px;
+      }
+
+      .hero {
+        padding: 48px 0 42px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+
+      .grid,
+      .figure-block,
+      .collaboration {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 42px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="wrap topbar">
+        <div class="site-name">Azabu Fukuyama Lab</div>
+        <nav aria-label="Page sections">
+          <a href="#overview">Overview</a>
+          <a href="#research">Research</a>
+          <a href="#collaboration">Collaboration</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap">
+          <p class="eyebrow">School of Veterinary Medicine, Azabu University</p>
+          <h1>Laboratory of Veterinary Pharmacology</h1>
+          <p class="lead">Fukuyama Lab studies disease prevention and health promotion in humans, dogs, and cats through veterinary pharmacology.</p>
+          <div class="profile">
+            <strong>Principal Investigator:</strong> Associate Professor Tomoki Fukuyama, D.V.M., Ph.D.
+          </div>
+          <div class="actions">
+            <a class="button" href="mailto:t-fukuyama@azabu-u.ac.jp">Contact Associate Professor Fukuyama</a>
+            <a class="button secondary" href="#research">View Research Overview</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview">
+        <div class="wrap">
+          <h2>Overview</h2>
+          <div class="intro">
+            <p>The Fukuyama Laboratory focuses on lifestyle- and environment-related factors associated with periodontal disease, allergic and skin diseases, toxic substances, and the effects of air and water on health.</p>
+            <p>We take an integrated approach that connects basic research with clinical practice. By combining disease models, cell culture experiments, microbiological and pharmacological analyses, and collaborations with veterinary hospitals, we aim to develop practical strategies for prevention, treatment, and daily health care.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="soft">
+        <div class="wrap">
+          <h2>Research Overview</h2>
+          <div class="figure-block">
+            <div class="figure-note">
+              <p>Our research connects basic science, clinical collaboration, and social implementation to address practical questions in animal and human health.</p>
+              <p>The overview below summarizes the laboratory's main research areas and how they relate to veterinary pharmacology.</p>
+            </div>
+            <img class="overview-figure" src="assets/fukuyama-research-overview.png" alt="Overview diagram of Fukuyama Lab research areas: periodontal disease, skin allergies, toxicology, and air and water health.">
+          </div>
+          <div class="grid">
+            <article class="topic">
+              <h3>Periodontal Disease in Dogs and Cats</h3>
+              <p>We study the prevention and care of periodontal disease in dogs and cats, including oral bacteria, inflammation, halitosis, and daily oral health care.</p>
+            </article>
+            <article class="topic">
+              <h3>Skin Diseases and Allergies</h3>
+              <p>We investigate allergic and inflammatory skin diseases, with attention to immune responses, skin barrier function, itching, and environmental or dietary factors.</p>
+            </article>
+            <article class="topic">
+              <h3>Toxicology</h3>
+              <p>We study how toxic substances affect living organisms and how toxicity can be evaluated scientifically, contributing to safer environments and better biological understanding.</p>
+            </article>
+            <article class="topic">
+              <h3>Air, Water, and Health</h3>
+              <p>We examine how environmental factors such as air and water may influence allergy, inflammation, and health through basic and applied studies.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="collaboration">
+        <div class="wrap collaboration">
+          <div>
+            <h2>Collaboration</h2>
+            <p class="intro">The Fukuyama Laboratory actively works with companies, veterinary hospitals, public institutions, and research organizations. Rather than limiting research to the laboratory, we aim to connect scientific findings with practical solutions for animal health and veterinary medicine.</p>
+          </div>
+          <ul class="theme-list" aria-label="Examples of collaboration themes">
+            <li>Canine-derived lactic acid bacteria, including Azabu strains and HUGBIO-related initiatives</li>
+            <li>Oral health care and preventive veterinary medicine</li>
+            <li>Environmental health technologies</li>
+            <li>Veterinary medical innovation, including VMAT-related initiatives</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="soft">
+        <div class="wrap">
+          <div class="contact">
+            <h2>Contact and Access</h2>
+            <p>For inquiries, please contact the laboratory through Azabu University or the information provided on the Japanese website.</p>
+            <div class="actions">
+              <a class="button" href="mailto:t-fukuyama@azabu-u.ac.jp">Email Associate Professor Fukuyama</a>
+            </div>
+            <address class="address">
+              Laboratory of Veterinary Pharmacology<br>
+              School of Veterinary Medicine, Azabu University<br>
+              1-17-71 Fuchinobe, Chuo-ku, Sagamihara, Kanagawa 252-5201, Japan
+            </address>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">© Fukuyama Laboratory, Azabu University. All Rights Reserved.</div>
+    </footer>
+  </div>
+</body>
+</html>
